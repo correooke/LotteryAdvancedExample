@@ -4,7 +4,7 @@ const LotteryCreator = artifacts.require("LotteryCreator");
 contract("Lottery", accounts => {
     const from = accounts[0];
 
-    it("Should return Lottery name", async () => {
+    it.skip("Should return Lottery name", async () => {
         const instance = await Lottery.deployed();
         const name = await instance.getName({ from });
         assert.equal(name, "Sorteo", "Wrong name");
@@ -63,7 +63,7 @@ contract("Lottery", accounts => {
         }
     })   
     
-    it.only("Should pay the ticket amount", async () => {
+    it("Should pay the ticket amount", async () => {
         const creator = await LotteryCreator.deployed();
         const name = "SorteoONGBitcoin";
         await creator.createLottery(name, { from });
